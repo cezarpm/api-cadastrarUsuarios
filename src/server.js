@@ -1,8 +1,12 @@
-const express = require('express');
+const app = require('./configs/custom-express');
 const port = 3000;
-const app = express();
+
+const connectionFactory = require('./app/infra/ConnectionFactory');
+const CreateTables = require('./app/infra/CreateTables')
 
 app.listen(port, () => {
-    console.log("Servidor rodando na porta" , port);
-    
+    console.log("Servidor rodando na porta", port);
 })
+
+const connection = connectionFactory(); //Create Connection
+CreateTables(connection); //Create Tables
