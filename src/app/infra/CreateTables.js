@@ -9,7 +9,7 @@ const tableUsers = `CREATE TABLE IF NOT EXISTS users (
 const createTables = connection => {
     connection.query(tableUsers, (err, result) => {
         if (err) console.log(err);
-        console.log(result);
+        console.log("Tables Criadas");
     })
 }
 

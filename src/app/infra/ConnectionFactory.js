@@ -13,7 +13,7 @@ const createConnection = () => {
         console.log('Conectou');
     })
 
-    return connection;
+    return connection
 }
 
-module.exports = createConnection;
+module.exports = createConnection
