@@ -16,4 +16,6 @@ const createConnection = () => {
     return connection
 }
 
-module.exports = createConnection
+const connection = createConnection();
+
+module.exports = () => connection;

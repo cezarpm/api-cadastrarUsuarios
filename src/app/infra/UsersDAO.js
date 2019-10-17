@@ -3,12 +3,13 @@ class UserDAO {
         this._connection = connection;
     }
 
-    login(email, password) {
+    login(email) {
         return new Promise((resolve, reject) => {
-            this._connection.query(`SELECT * FROM users WHERE email = '${email}' AND passwordHas = '${password}'`, (err, result) => {
-                if (err) return reject('Não foi possivel listar usuarios')
+            this._connection.query("SELECT * FROM users WHERE email = ?", [email], (err, result) => {
 
-                return resolve(result)
+                if (!result[0]) return reject('Não foi possivel listar usuarios');
+
+                return resolve(result);
 
             });
         })

@@ -1,4 +1,5 @@
 const UserDAO = require('../infra/UsersDAO');
+const passwordCompareHelper = require('../helper/passwordCompareHelper');
 
 const connectionFactory = require('../infra/ConnectionFactory');
 const connection = connectionFactory();
@@ -11,9 +12,14 @@ module.exports = {
 
         const { email, password } = req.body;
 
-        userConnection.login(email, password)
+        userConnection.login(email)
             .then(user => {
-                console.log(user);
+
+                let senha = passwordCompareHelper(password, user[0])
+
+                if(senha) console.log('deu certo');
+                if(!senha) console.log('senha errada campeao');
+
                 res.status(200).json(user);
 
             })
