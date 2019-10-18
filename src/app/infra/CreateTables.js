@@ -4,13 +4,13 @@ const tableUsers = `CREATE TABLE IF NOT EXISTS users (
     email varchar(255) NOT NULL,
     passwordHas varchar(255) NOT NULL,
     PRIMARY KEY( id )
-    );`
+    );`;
 
-const createTables = connection => {
-    connection.query(tableUsers, (err, result) => {
-        if (err) console.log(err);
-        console.log("Tables Criadas");
-    })
-}
+const createTables = (connection) => {
+  connection.query(tableUsers, (err, result) => {
+    if (err) console.log(err);
+    console.log(result);
+  });
+};
 
-module.exports = createTables
+module.exports = createTables;

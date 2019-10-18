@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt');
 
 const passwordCompare = (password, user) => {
-    let senha = bcrypt.compareSync(password, user.passwordHas);
+  const senha = bcrypt.compareSync(password, user.passwordHas);
 
-    return senha;
-}
+  return senha;
+};
 
 module.exports = passwordCompare;
