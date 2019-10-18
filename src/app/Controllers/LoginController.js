@@ -1,5 +1,5 @@
 const UserDAO = require('../infra/UsersDAO');
-const passwordCompareHelper = require('../helper/passwordCompareHelper');
+const passwordCompareHelper = require('../helpers/passwordCompareHelper');
 const connectionFactory = require('../infra/ConnectionFactory');
 
 const connection = connectionFactory();
